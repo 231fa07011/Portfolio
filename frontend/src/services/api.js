@@ -86,7 +86,48 @@ export async function fetchProjects(params = {}) {
 }
 
 /**
- * Submit contact form payload to backend
+ * Submit contact message directly to Web3Forms API
+ * https://api.web3forms.com/submit
+ */
+export async function submitWeb3FormsContact(formData) {
+  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+  if (!accessKey || accessKey.trim() === '' || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+    throw new Error(
+      'Web3Forms access key is not configured. Please set VITE_WEB3FORMS_ACCESS_KEY in your environment variables (e.g., in Vercel project settings).'
+    );
+  }
+
+  const payload = {
+    access_key: accessKey.trim(),
+    name: formData.name.trim(),
+    email: formData.email.trim(),
+    subject: formData.subject?.trim() || `Portfolio Inquiry from ${formData.name.trim()}`,
+    message: formData.message.trim(),
+    botcheck: formData.botcheck ? 'bot_detected' : '',
+    from_name: 'Varikuntla Nagamounika Portfolio',
+  };
+
+  const response = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok || !data.success) {
+    throw new Error(data.message || 'Failed to deliver message via Web3Forms.');
+  }
+
+  return data;
+}
+
+/**
+ * Submit contact form payload to backend (optional local endpoint)
  */
 export async function submitContactForm(payload) {
   try {
