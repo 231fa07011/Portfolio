@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede9fe" />
+      <stop offset="50%" stop-color="#e0e7ff" />
+      <stop offset="100%" stop-color="#fdf4ff" />
+    </linearGradient>
+    <linearGradient id="purpleG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <linearGradient id="cardG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.75" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#7c3aed" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg1)" />
+
+  <!-- Abstract decorative circles -->
+  <circle cx="100" cy="80" r="140" fill="#c4b5fd" opacity="0.25" />
+  <circle cx="720" cy="380" r="160" fill="#93c5fd" opacity="0.25" />
+
+  <!-- App Mockup Window -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="45" width="660" height="360" rx="16" fill="url(#cardG)" stroke="#e2e8f0" stroke-width="1.5" />
+    
+    <!-- Top Bar -->
+    <rect x="70" y="45" width="660" height="40" rx="16" fill="#f8fafc" />
+    <path d="M 70 85 L 730 85" stroke="#e2e8f0" stroke-width="1" />
+    <circle cx="95" cy="65" r="5" fill="#f43f5e" />
+    <circle cx="112" cy="65" r="5" fill="#f59e0b" />
+    <circle cx="129" cy="65" r="5" fill="#10b981" />
+    <rect x="250" y="55" width="300" height="20" rx="6" fill="#e2e8f0" opacity="0.7" />
+    <text x="400" y="69" font-family="system-ui, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">vignan-fest-live.edu/events</text>
+
+    <!-- Sidebar -->
+    <rect x="70" y="86" width="160" height="319" fill="#f8fafc" opacity="0.8" />
+    <rect x="90" y="110" width="120" height="24" rx="6" fill="#ede9fe" />
+    <text x="100" y="126" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#7c3aed">⚡ Live Updates</text>
+    <rect x="90" y="145" width="100" height="12" rx="4" fill="#cbd5e1" opacity="0.6" />
+    <rect x="90" y="170" width="110" height="12" rx="4" fill="#cbd5e1" opacity="0.6" />
+    <rect x="90" y="195" width="85" height="12" rx="4" fill="#cbd5e1" opacity="0.6" />
+    <rect x="90" y="220" width="105" height="12" rx="4" fill="#cbd5e1" opacity="0.6" />
+
+    <!-- Main Content Area -->
+    <!-- Hero Banner inside app -->
+    <rect x="250" y="105" width="460" height="100" rx="12" fill="url(#purpleG)" />
+    <text x="275" y="140" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#ffffff">Vignan Mahotsav 2025 • Live Feed</text>
+    <text x="275" y="165" font-family="system-ui, sans-serif" font-size="12" fill="#ede9fe">Real-Time Concert Schedules, Registrations &amp; Flash Announcements</text>
+    <rect x="275" y="178" width="90" height="18" rx="9" fill="#ffffff" fill-opacity="0.25" />
+    <text x="320" y="191" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">● Socket.IO Active</text>
+
+    <!-- Event Cards Grid -->
+    <g transform="translate(250, 220)">
+      <!-- Card 1 -->
+      <rect x="0" y="0" width="220" height="85" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+      <circle cx="25" cy="25" r="12" fill="#dbeafe" />
+      <text x="25" y="30" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">🎸</text>
+      <text x="48" y="24" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1e293b">Battle of Bands</text>
+      <text x="48" y="38" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Main Arena • 06:30 PM</text>
+      <rect x="48" y="52" width="70" height="16" rx="4" fill="#dcfce7" />
+      <text x="83" y="64" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#15803d" text-anchor="middle">ON STAGE NOW</text>
+
+      <!-- Card 2 -->
+      <rect x="235" y="0" width="225" height="85" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+      <circle cx="260" cy="25" r="12" fill="#fef3c7" />
+      <text x="260" y="30" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">💡</text>
+      <text x="283" y="24" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1e293b">Hackathon Finals</text>
+      <text x="283" y="38" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Seminar Hall 3 • 07:00 PM</text>
+      <rect x="283" y="52" width="80" height="16" rx="4" fill="#ede9fe" />
+      <text x="323" y="64" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#6d28d9" text-anchor="middle">STARTING SOON</text>
+
+      <!-- Card 3 -->
+      <rect x="0" y="95" width="220" height="75" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+      <circle cx="25" cy="120" r="12" fill="#fae8ff" />
+      <text x="25" y="125" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">🎭</text>
+      <text x="48" y="118" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1e293b">Dance Drama</text>
+      <text x="48" y="132" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Open Auditorium</text>
+
+      <!-- Card 4 -->
+      <rect x="235" y="95" width="225" height="75" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+      <circle cx="260" cy="120" r="12" fill="#fee2e2" />
+      <text x="260" y="125" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">📢</text>
+      <text x="283" y="118" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1e293b">Schedule Update</text>
+      <text x="283" y="132" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Broadcasted via Socket.IO</text>
+    </g>
+  </g>
+</svg>
+
