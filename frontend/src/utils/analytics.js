@@ -2,53 +2,54 @@
  * Google Analytics 4 (GA4) Integration Utility
  *
  * Configures gtag.js and enables event and page tracking.
- * Reads Measurement ID from import.meta.env.VITE_GA_MEASUREMENT_ID.
+ * Measurement ID: G-Y22C0THCKR
  */
+
+export const GA_MEASUREMENT_ID =
+  import.meta.env.VITE_GA_MEASUREMENT_ID?.trim() || 'G-Y22C0THCKR';
 
 let isInitialized = false;
 
 export function initGA() {
   if (typeof window === 'undefined' || isInitialized) return;
 
-  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim();
-
-  if (!measurementId || measurementId === 'YOUR_GA_MEASUREMENT_ID') {
-    // Only inform in development mode
-    if (import.meta.env.DEV) {
-      console.info(
-        'ℹ️ Google Analytics: VITE_GA_MEASUREMENT_ID not configured. Analytics is idle.'
-      );
-    }
-    return;
-  }
+  const measurementId = GA_MEASUREMENT_ID;
+  if (!measurementId || measurementId === 'YOUR_GA_MEASUREMENT_ID') return;
 
   try {
-    // 1. Inject gtag script dynamically
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
-    document.head.appendChild(script);
-
-    // 2. Setup dataLayer & gtag function
+    // 1. Ensure dataLayer and gtag are available
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
+    if (typeof window.gtag !== 'function') {
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+
+      // Inject script if not already in DOM
+      const existingScript = document.querySelector(
+        `script[src*="googletagmanager.com/gtag/js?id=${measurementId}"]`
+      );
+      if (!existingScript) {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+        document.head.appendChild(script);
+      }
+
+      window.gtag('js', new Date());
+      window.gtag('config', measurementId, {
+        page_path: window.location.pathname + window.location.hash,
+        send_page_view: true,
+      });
     }
-    window.gtag = gtag;
 
-    gtag('js', new Date());
-    gtag('config', measurementId, {
-      page_path: window.location.pathname + window.location.hash,
-      send_page_view: true,
-    });
-
-    // 3. Track hash navigation within single-page sections (#about, #projects, #contact, etc.)
+    // 2. Track hash navigation within single-page sections (#about, #projects, #contact, etc.)
     window.addEventListener('hashchange', () => {
       trackPageView(window.location.pathname + window.location.hash);
     });
 
     isInitialized = true;
-    console.info(`✓ Google Analytics initialized with ID: ${measurementId}`);
+    console.info(`✓ Google Analytics active with ID: ${measurementId}`);
   } catch (err) {
     console.warn('Google Analytics initialization failed:', err);
   }
@@ -61,9 +62,6 @@ export function initGA() {
  */
 export function trackPageView(path, title) {
   if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-    const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim();
-    if (!measurementId) return;
-
     window.gtag('event', 'page_view', {
       page_path: path || window.location.pathname + window.location.hash,
       page_title: title || document.title,
