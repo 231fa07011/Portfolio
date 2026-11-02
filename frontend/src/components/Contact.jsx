@@ -12,6 +12,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { submitWeb3FormsContact } from '../services/api';
+import { trackEvent } from '../utils/analytics';
 
 const fallbackPersonal = {
   email: 'nagamounika624@gmail.com',
@@ -121,6 +122,10 @@ export default function Contact({ personal = {} }) {
     try {
       await submitWeb3FormsContact(form);
       setStatus('success');
+      trackEvent('contact_form_submit', {
+        event_category: 'contact',
+        event_label: form.subject || 'General Inquiry',
+      });
       // Clear form ONLY after successful submission
       setForm({
         name: '',

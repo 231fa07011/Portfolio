@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FileDown, ArrowRight, Mail, MapPin, GraduationCap, Code2 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
+import { trackEvent } from "../utils/analytics";
 
 const container = {
   hidden: {},
@@ -127,6 +128,12 @@ export default function Hero({ personal }) {
               <a
                 href="/resume.pdf"
                 download="VARIKUNTLA_NAGAMOUNIKA_Resume.pdf"
+                onClick={() =>
+                  trackEvent("download_resume", {
+                    event_category: "engagement",
+                    event_label: "Hero Resume Button",
+                  })
+                }
                 className="inline-flex items-center gap-2 rounded-xl border border-[#EDE7FF] bg-white px-6 py-2.5 text-sm font-semibold text-[#26324A] shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98]"
               >
                 <FileDown className="h-4 w-4 text-[#9180D8]" />
