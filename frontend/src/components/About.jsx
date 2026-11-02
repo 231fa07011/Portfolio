@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { User, Code2, Layers, Radio, Award, ArrowRight } from "lucide-react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { User, Code2, Radio, Layers, Award } from 'lucide-react';
 
 const container = {
   hidden: {},
@@ -9,233 +10,172 @@ const container = {
 };
 
 const slideIn = {
-  hidden: { opacity: 0, x: -40 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  hidden: { opacity: 0, x: -30 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
 const stats = [
-  { label: "CGPA", value: "7.92" },
-  { label: "Graduation", value: "2027" },
-  { label: "Certifications", value: "5+" },
-  { label: "NCC Award", value: "Grade A" },
+  { label: 'Academic CGPA', value: '7.92 / 10', detail: "Vignan's Foundation" },
+  { label: 'Expected Graduation', value: 'May 2027', detail: 'B.Tech IT (3rd Year)' },
+  { label: 'Verified Certifications', value: '5 Certs', detail: 'NPTEL, IIT Ropar & Cambridge' },
+  { label: 'Leadership Credential', value: 'Grade A', detail: 'NCC B Certificate' },
 ];
 
 const capabilities = [
   {
     icon: Code2,
-    title: "Frontend & UI Engineering",
-    desc: "Crafting responsive, accessible interfaces with React.js, Tailwind CSS, and modern component architectures.",
-    color: "#EDE7FF",
-    iconColor: "#9180D8",
+    title: 'Frontend & UI Engineering',
+    desc: 'Crafting responsive, accessible web interfaces with React.js, Tailwind CSS, semantic HTML5, and modern component lifecycles.',
+    badgeBg: 'bg-[#EDE7FF]',
+    iconColor: 'text-[#9180D8]',
+    borderColor: 'border-[#EDE7FF]',
   },
   {
     icon: Radio,
-    title: "Real-Time & RESTful APIs",
-    desc: "Building live, event-driven features with Socket.IO and well-structured REST endpoints using Node & Express.",
-    color: "#E5F2FF",
-    iconColor: "#5B8DEF",
+    title: 'REST APIs & Real-Time Web',
+    desc: 'Engineering event-driven features with Socket.IO and architecting modular RESTful endpoints in Node.js and Express.',
+    badgeBg: 'bg-[#E5F2FF]',
+    iconColor: 'text-[#0284C7]',
+    borderColor: 'border-[#E5F2FF]',
   },
   {
     icon: Layers,
-    title: "Clean Decoupled Systems",
-    desc: "Designing maintainable, scalable applications with clear separation of concerns and modular codebases.",
-    color: "#E8F8F0",
-    iconColor: "#34C77B",
+    title: 'Clean Architecture & Databases',
+    desc: 'Writing structured, maintainable code with strong OOP fundamentals, relational database design with MySQL, and decoupled architectures.',
+    badgeBg: 'bg-[#E0F2F1]',
+    iconColor: 'text-[#0D9488]',
+    borderColor: 'border-[#E0F2F1]',
   },
   {
     icon: Award,
-    title: "Leadership & Team Execution",
-    desc: "NCC Grade-A certified with proven ability to collaborate, communicate, and deliver under structured timelines.",
-    color: "#FFF0F4",
-    iconColor: "#E06B8A",
+    title: 'Leadership & Collaborative Drive',
+    desc: 'Demonstrated team discipline, communication, and event execution through NCC leadership and university cultural fest coordination.',
+    badgeBg: 'bg-[#FFF0F4]',
+    iconColor: 'text-[#E11D48]',
+    borderColor: 'border-[#FFF0F4]',
   },
 ];
 
-export default function About({ personal = {} }) {
+export default function About() {
   return (
-    <section id="about" className="relative bg-[#FCFBFF] py-20 sm:py-28">
-      {/* ── section header ── */}
-      <div className="mx-auto mb-14 max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="about" className="relative bg-white py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="text-center"
+          className="text-center mb-16"
         >
-          <motion.span
-            variants={slideIn}
-            className="mb-3 inline-block rounded-full border border-[#EDE7FF]/60 bg-white px-4 py-1 text-xs font-medium tracking-wide text-[#9180D8] shadow-sm"
-          >
-            <User className="mr-1.5 inline-block h-3.5 w-3.5 -translate-y-px" />
-            Developer Profile
-          </motion.span>
+          <motion.div variants={slideIn} className="inline-block mb-3">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#EDE7FF] bg-[#FCFBFF] px-4 py-1.5 text-xs font-semibold tracking-wide text-[#9180D8] shadow-xs">
+              <User className="h-3.5 w-3.5" />
+              Engineering Background
+            </span>
+          </motion.div>
 
           <motion.h2
             variants={slideIn}
-            className="mb-3 text-3xl font-extrabold tracking-tight text-[#26324A] sm:text-4xl"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight mb-4"
           >
-            About{" "}
-            <span className="bg-gradient-to-r from-[#9180D8] to-[#5B8DEF] bg-clip-text text-transparent">
-              Me
-            </span>
+            About Me
           </motion.h2>
 
           <motion.p
             variants={slideIn}
-            className="mx-auto max-w-2xl text-sm text-[#707789] sm:text-base"
+            className="text-base sm:text-lg text-[#64748B] max-w-2xl mx-auto leading-relaxed"
           >
-            A snapshot of who I am, what I build, and the values I bring to
-            every project.
+            A dedicated Information Technology student with a strong passion for
+            problem solving, modern web technologies, and scalable software systems.
           </motion.p>
         </motion.div>
-      </div>
 
-      {/* ── main grid ── */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-          {/* ════════════ LEFT — narrative card ════════════ */}
+        {/* Narrative & Stats Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16">
           <motion.div
-            className="lg:col-span-7"
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
+            className="lg:col-span-7 space-y-4 text-base text-[#475569] leading-relaxed"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <motion.div
-              variants={slideIn}
-              className="rounded-3xl border border-[#EDE7FF]/60 bg-white p-6 shadow-sm sm:p-8"
-            >
-              {/* avatar + name */}
-              <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#9180D8] text-lg font-bold tracking-wide text-white shadow-md shadow-[#9180D8]/20">
-                  VN
-                </div>
+            <p>
+              I am currently pursuing my <strong>B.Tech in Information Technology</strong> at{' '}
+              <strong className="text-[#0F172A]">
+                Vignan's Foundation for Science, Technology & Research, Guntur
+              </strong>{' '}
+              (CGPA 7.92/10, class of 2027). My technical journey is anchored in computer science
+              foundations, algorithms, relational database management, and full-stack web engineering.
+            </p>
+            <p>
+              During my web development internship at <strong className="text-[#0F172A]">Rinex Technologies</strong>,
+              I built reusable frontend components, implemented responsive designs for mobile and desktop screens,
+              and collaborated effectively through Git version control.
+            </p>
+            <p>
+              Beyond the classroom, I have earned rigorous NPTEL certifications in Software Testing and Deep Learning
+              (IIT Ropar, Elite), demonstrated teamwork as a Digital Media Coordinator for Vignan Mahotsav 2025,
+              and developed discipline through NCC training where I achieved Grade A in the NCC B Certificate.
+            </p>
+          </motion.div>
+
+          {/* Key Stat Cards */}
+          <motion.div
+            className="lg:col-span-5 grid grid-cols-2 gap-4"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {stats.map((s, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-2xl bg-[#FCFBFF] border border-[#EDE7FF] shadow-xs flex flex-col justify-between"
+              >
                 <div>
-                  <h3 className="text-base font-bold tracking-wide text-[#26324A] sm:text-lg">
-                    VARIKUNTLA NAGAMOUNIKA
-                  </h3>
-                  <p className="text-xs text-[#707789] sm:text-sm">
-                    Information Technology Undergrad • Web Developer
+                  <p className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight">
+                    {s.value}
+                  </p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#9180D8] mt-1">
+                    {s.label}
                   </p>
                 </div>
-              </div>
-
-              {/* summary callout */}
-              <div className="mb-6 rounded-2xl bg-[#EDE7FF]/30 px-5 py-4">
-                <p className="text-sm leading-relaxed text-[#707789]">
-                  B.Tech Information Technology student graduating in 2027 with
-                  hands-on web development experience through an internship and
-                  academic projects. Skilled in Python, Java, HTML, CSS,
-                  JavaScript, React.js, and MySQL with strong knowledge of OOP,
-                  DBMS, and REST APIs. Passionate about building responsive,
-                  real-time web applications, problem-solving, and clean software
-                  architecture.
+                <p className="text-[11px] text-[#64748B] mt-3 font-medium">
+                  {s.detail}
                 </p>
               </div>
-
-              {/* extended bio */}
-              <div className="mb-8 space-y-4 text-sm leading-relaxed text-[#707789]">
-                <p>
-                  During my internship at{" "}
-                  <span className="font-semibold text-[#26324A]">
-                    Rinex Technologies
-                  </span>
-                  , I gained hands-on exposure to production-grade frontend
-                  development workflows, collaborating with cross-functional
-                  teams to ship responsive UIs and integrate RESTful services.
-                </p>
-                <p>
-                  My academic projects reflect a bias toward real-world
-                  problem-solving. The{" "}
-                  <span className="font-semibold text-[#26324A]">
-                    Real-Time Event Management System
-                  </span>{" "}
-                  leverages <span className="font-medium">Socket.IO</span> for
-                  instant updates across connected clients, while the{" "}
-                  <span className="font-semibold text-[#26324A]">
-                    Online Shopping System
-                  </span>{" "}
-                  demonstrates end-to-end CRUD operations with a clean
-                  decoupled architecture using React.js, Node.js, and MySQL.
-                </p>
-                <p>
-                  Beyond code, I hold a{" "}
-                  <span className="font-semibold text-[#26324A]">
-                    Grade-A NCC certification
-                  </span>
-                  , which instilled discipline, leadership, and the ability to
-                  execute under structured timelines—qualities I carry into
-                  every sprint and team collaboration.
-                </p>
-              </div>
-
-              {/* stats row */}
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-                {stats.map((s) => (
-                  <div
-                    key={s.label}
-                    className="rounded-2xl border border-[#EDE7FF]/50 bg-[#FCFBFF] px-4 py-3 text-center"
-                  >
-                    <p className="text-lg font-bold text-[#26324A]">
-                      {s.value}
-                    </p>
-                    <p className="text-[11px] font-medium uppercase tracking-wider text-[#707789]">
-                      {s.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+            ))}
           </motion.div>
+        </div>
 
-          {/* ════════════ RIGHT — capability cards ════════════ */}
-          <motion.div
-            className="flex flex-col gap-4 lg:col-span-5"
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {capabilities.map((cap) => {
-              const Icon = cap.icon;
-              return (
-                <motion.div
-                  key={cap.title}
-                  variants={slideIn}
-                  className="group rounded-2xl border border-[#EDE7FF]/60 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
-                >
-                  <div className="mb-3 flex items-center gap-3">
-                    <div
-                      className="flex h-10 w-10 items-center justify-center rounded-xl"
-                      style={{ backgroundColor: cap.color }}
-                    >
-                      <Icon
-                        className="h-5 w-5"
-                        style={{ color: cap.iconColor }}
-                      />
-                    </div>
-                    <h4 className="text-sm font-bold text-[#26324A]">
-                      {cap.title}
-                    </h4>
+        {/* 4 Core Competency Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {capabilities.map((c, idx) => {
+            const Icon = c.icon;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className={`p-6 rounded-3xl bg-[#FAF9F6] border ${c.borderColor} hover:bg-white hover:shadow-md transition-all duration-300 flex flex-col justify-between`}
+              >
+                <div>
+                  <div className={`w-12 h-12 rounded-2xl ${c.badgeBg} flex items-center justify-center mb-5`}>
+                    <Icon className={`w-6 h-6 ${c.iconColor}`} />
                   </div>
-                  <p className="text-xs leading-relaxed text-[#707789] sm:text-sm">
-                    {cap.desc}
+                  <h3 className="text-base font-bold text-[#0F172A] mb-2 leading-snug">
+                    {c.title}
+                  </h3>
+                  <p className="text-xs text-[#64748B] leading-relaxed">
+                    {c.desc}
                   </p>
-                </motion.div>
-              );
-            })}
-
-            {/* education link */}
-            <motion.a
-              variants={slideIn}
-              href="#education"
-              className="group mt-1 inline-flex items-center gap-2 self-start rounded-xl border border-[#EDE7FF]/60 bg-white px-5 py-3 text-sm font-semibold text-[#9180D8] shadow-sm transition-colors hover:bg-[#EDE7FF]/30"
-            >
-              View Education &amp; Certifications
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </motion.a>
-          </motion.div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

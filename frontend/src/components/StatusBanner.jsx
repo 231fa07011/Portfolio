@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AlertCircle, RefreshCw, WifiOff } from 'lucide-react';
+import { RefreshCw, WifiOff } from 'lucide-react';
 
 export default function StatusBanner({ backendStatus, onRetry, isRetrying }) {
   if (backendStatus.online || !backendStatus.checked) return null;

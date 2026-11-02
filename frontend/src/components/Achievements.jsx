@@ -1,164 +1,114 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Medal, Users, Flame } from 'lucide-react';
+import { Trophy, Medal, Users, Flame, Award, CheckCircle2 } from 'lucide-react';
+import { fallbackPortfolioData } from '../data/fallbackPortfolio';
 
-const fallbackAchievements = [
-  {
+const defaultAchievements = fallbackPortfolioData.achievements;
+
+const achievementVisuals = {
+  'ncc-b-cert': {
     icon: Medal,
-    title: "NCC B Certificate – Grade 'A'",
-    subtitle: 'National Cadet Corps',
-    year: '2024',
-    description:
-      'Earned the prestigious NCC B Certificate with Grade A, demonstrating exemplary discipline, leadership, and dedication through rigorous training camps, drills, and community service activities.',
-    bg: 'bg-[#FFF1E5]/30',
-    iconBg: 'bg-[#FFF1E5]',
-    iconColor: 'text-orange-500',
-    borderColor: 'border-[#FFF1E5]/60',
+    badgeBg: 'bg-[#FEF3C7]',
+    iconColor: 'text-amber-700',
+    borderColor: 'border-[#FEF3C7]',
+    tag: 'National Recognition',
   },
-  {
+  'pr-coordinator': {
     icon: Users,
-    title: 'PR & Digital Media Coordinator',
-    subtitle: 'Vignan Mahotsav 2025',
-    year: '2025',
-    description:
-      'Led the public relations and digital media strategy for the flagship university fest, managing social media campaigns, press releases, and digital outreach that significantly boosted event visibility.',
-    bg: 'bg-[#EDE7FF]/30',
-    iconBg: 'bg-[#EDE7FF]',
+    badgeBg: 'bg-[#EDE7FF]',
     iconColor: 'text-[#9180D8]',
-    borderColor: 'border-[#EDE7FF]/60',
+    borderColor: 'border-[#EDE7FF]',
+    tag: 'Campus Leadership',
   },
-  {
+  'ml-neurothon': {
     icon: Flame,
-    title: 'ML Neurothon 2026 Participant',
-    subtitle: 'Machine Learning Competition',
-    year: '2026',
-    description:
-      'Participated in the ML Neurothon 2026, tackling real-world machine learning challenges through intensive problem-solving sessions, model building, and collaborative data-driven innovation.',
-    bg: 'bg-[#E5F2FF]/30',
-    iconBg: 'bg-[#E5F2FF]',
-    iconColor: 'text-blue-500',
-    borderColor: 'border-[#E5F2FF]/60',
-  },
-];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' },
+    badgeBg: 'bg-[#E5F2FF]',
+    iconColor: 'text-[#0284C7]',
+    borderColor: 'border-[#E5F2FF]',
+    tag: 'Technical Hackathon',
   },
 };
 
 export default function Achievements({ achievements = [] }) {
-  const items = achievements.length > 0 ? achievements : fallbackAchievements;
+  const items = achievements && achievements.length > 0 ? achievements : defaultAchievements;
 
   return (
-    <section id="achievements" className="py-20 md:py-28 bg-[#FCFBFF]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="achievements" className="py-20 md:py-28 bg-[#FAF9F6] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFF1E5]/50 border border-[#FFF1E5]/70 mb-4">
-            <Trophy className="w-4 h-4 text-orange-500" />
-            <span className="text-sm font-medium text-orange-600">
-              Recognition
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#EDE7FF] shadow-xs mb-3">
+            <Trophy className="w-4 h-4 text-amber-600" />
+            <span className="text-xs font-semibold tracking-wider uppercase text-amber-700">
+              Honors & Leadership
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#26324A] mb-3">
-            Achievements & Activities
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight mb-4">
+            Key Achievements
           </h2>
-          <p className="text-[#707789] max-w-xl mx-auto">
-            Milestones that reflect leadership, commitment, and continuous
-            learning beyond the classroom.
+          <p className="text-base sm:text-lg text-[#64748B] max-w-2xl mx-auto leading-relaxed">
+            Distinctions in leadership, university media coordination, and competitive problem solving.
           </p>
         </motion.div>
 
-        {/* Achievement Cards Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        {/* Achievement Cards */}
+        <div className="grid md:grid-cols-3 gap-8">
           {items.map((item, idx) => {
-            const IconComp = item.icon || Trophy;
+            const visual = achievementVisuals[item.id] || {
+              icon: Award,
+              badgeBg: 'bg-[#EDE7FF]',
+              iconColor: 'text-[#9180D8]',
+              borderColor: 'border-[#EDE7FF]',
+              tag: 'Achievement',
+            };
+            const Icon = visual.icon;
+
             return (
               <motion.div
-                key={idx}
-                variants={cardVariants}
-                className={`group relative bg-white rounded-2xl border ${
-                  item.borderColor || 'border-[#EDE7FF]/60'
-                } shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden`}
+                key={item.id || idx}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className={`p-6 sm:p-8 rounded-3xl bg-white border ${visual.borderColor} shadow-xs hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between`}
               >
-                {/* Subtle background tint */}
-                <div
-                  className={`absolute inset-0 ${
-                    item.bg || 'bg-[#EDE7FF]/30'
-                  } opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                />
-
-                <div className="relative p-6 md:p-7">
-                  {/* Icon */}
-                  <div
-                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${
-                      item.iconBg || 'bg-[#EDE7FF]'
-                    } mb-5`}
-                  >
-                    <IconComp
-                      className={`w-6 h-6 ${
-                        item.iconColor || 'text-[#9180D8]'
-                      }`}
-                    />
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-6">
+                    <div className={`w-12 h-12 rounded-2xl ${visual.badgeBg} flex items-center justify-center`}>
+                      <Icon className={`w-6 h-6 ${visual.iconColor}`} />
+                    </div>
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-[#FAF9F6] text-[#475569] border border-[#EDE7FF]">
+                      {item.year}
+                    </span>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-lg font-bold text-[#26324A] mb-2 leading-snug">
-                    {item.title}
-                  </h3>
-
-                  {/* Subtitle Badge */}
-                  <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-[#9180D8]/8 text-[#9180D8] border border-[#9180D8]/15 mb-4">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#9180D8] mb-1.5 block">
                     {item.subtitle}
                   </span>
 
-                  {/* Description */}
-                  <p className="text-sm text-[#707789] leading-relaxed mb-5">
+                  <h3 className="text-xl font-extrabold text-[#0F172A] mb-3 leading-snug">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                     {item.description}
                   </p>
+                </div>
 
-                  {/* Year Footer */}
-                  <div className="flex items-center justify-between pt-4 border-t border-[#EDE7FF]/30">
-                    <div className="flex items-center gap-1.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#9180D8]" />
-                      <span className="text-xs font-semibold text-[#9180D8]">
-                        {item.year}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1 text-xs text-[#707789]">
-                      <Trophy className="w-3 h-3" />
-                      <span>Achievement</span>
-                    </div>
-                  </div>
+                <div className="pt-6 mt-6 border-t border-[#EDE7FF] flex items-center gap-1.5 text-xs font-semibold text-[#0F172A]">
+                  <CheckCircle2 className="w-4 h-4 text-[#9180D8]" />
+                  <span>{visual.tag}</span>
                 </div>
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

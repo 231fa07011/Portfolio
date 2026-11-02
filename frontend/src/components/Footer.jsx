@@ -5,9 +5,11 @@ import { GithubIcon, LinkedinIcon } from './Icons';
 const fallbackPersonal = {
   name: 'VARIKUNTLA NAGAMOUNIKA',
   email: 'nagamounika624@gmail.com',
-  github: 'https://github.com',
-  linkedin: 'https://linkedin.com',
+  github: 'https://github.com/231fa07011',
+  linkedin: 'https://www.linkedin.com/in/nagamounika-varikuntla-894658283/',
 };
+
+const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer({ personal = {} }) {
   const info = { ...fallbackPersonal, ...personal };
@@ -15,8 +17,6 @@ export default function Footer({ personal = {} }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-white border-t border-[#EDE7FF]">
@@ -135,7 +135,7 @@ export default function Footer({ personal = {} }) {
         {/* Bottom Bar */}
         <div className="py-5 border-t border-[#EDE7FF]/40 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-[#707789]">
-            © {currentYear} VARIKUNTLA NAGAMOUNIKA. All rights reserved.
+            © {CURRENT_YEAR} VARIKUNTLA NAGAMOUNIKA. All rights reserved.
           </p>
           <p className="flex items-center gap-1.5 text-xs text-[#707789]">
             Designed with

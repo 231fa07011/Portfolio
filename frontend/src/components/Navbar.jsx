@@ -3,28 +3,27 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Menu,
   X,
-  CheckCircle2,
   RefreshCw,
   FileDown,
   Sparkles
 } from 'lucide-react';
+
+const navLinks = [
+  { name: 'About', href: '#about' },
+  { name: 'Education', href: '#education' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Certifications', href: '#certifications' },
+  { name: 'Achievements', href: '#achievements' },
+  { name: 'Contact', href: '#contact' },
+];
 
 export default function Navbar({ backendStatus, onRetryBackend }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState('');
-
-  const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Education', href: '#education' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Certifications', href: '#certifications' },
-    { name: 'Achievements', href: '#achievements' },
-    { name: 'Contact', href: '#contact' },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
