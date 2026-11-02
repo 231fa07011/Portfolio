@@ -10,6 +10,15 @@
     <meta property="og:description" content="Explore my projects, skills, internship experience, certifications, and achievements." />
     <meta property="og:image" content="/profile.png" />
     <title>VARIKUNTLA NAGAMOUNIKA | Portfolio</title>
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('portfolio-theme');
+          var isDark = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y22C0THCKR"></script>
     <script>

@@ -54,23 +54,23 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-[#FCFBFF] text-[#26324A]">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#FCFBFF] dark:bg-[#0B0F19] text-[#26324A] dark:text-[#F1F5F9] transition-colors duration-300">
         <div className="relative mb-5">
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#9180D8] to-[#6C83D8] flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-[#9180D8]/20 animate-pulse">
             VN
           </div>
-          <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-sm">
+          <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center shadow-sm">
             <RefreshCw className="w-3.5 h-3.5 text-[#9180D8] animate-spin" />
           </div>
         </div>
-        <p className="text-sm font-bold text-[#26324A]">Loading Portfolio...</p>
-        <p className="text-xs text-[#707789] mt-1">Connecting to Express REST API</p>
+        <p className="text-sm font-bold text-[#26324A] dark:text-[#F1F5F9]">Loading Portfolio...</p>
+        <p className="text-xs text-[#707789] dark:text-[#94A3B8] mt-1">Connecting to Production REST API</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#FCFBFF] text-[#26324A] selection:bg-[#EDE7FF] selection:text-[#4c1d95] flex flex-col justify-between">
+    <div className="min-h-screen bg-[#FCFBFF] dark:bg-[#0B0F19] text-[#26324A] dark:text-[#F1F5F9] selection:bg-[#EDE7FF] selection:text-[#4c1d95] dark:selection:bg-indigo-900 dark:selection:text-indigo-200 flex flex-col justify-between transition-colors duration-300">
       <div>
         {/* Navigation Bar */}
         <Navbar

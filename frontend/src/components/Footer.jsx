@@ -19,33 +19,33 @@ export default function Footer({ personal = {} }) {
   };
 
   return (
-    <footer className="bg-white border-t border-[#EDE7FF]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-white dark:bg-[#080C14] border-t border-[#EDE7FF] dark:border-slate-800/80 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-10 md:py-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="py-12 md:py-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Brand Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#9180D8] to-[#7b6bc4] flex items-center justify-center text-white font-bold text-lg shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#9180D8] to-[#5B8DEF] flex items-center justify-center text-white font-black text-sm shadow-sm">
                 VN
               </div>
               <div>
-                <h3 className="text-sm font-bold text-[#26324A] tracking-wide">
+                <h3 className="text-sm font-extrabold text-[#0F172A] dark:text-[#F8FAFC] tracking-wide">
                   VARIKUNTLA NAGAMOUNIKA
                 </h3>
-                <p className="text-xs text-[#707789]">
-                  Full-Stack Developer
+                <p className="text-xs text-[#64748B] dark:text-[#94A3B8]">
+                  B.Tech IT • Web Developer
                 </p>
               </div>
             </div>
-            <p className="text-sm text-[#707789] leading-relaxed max-w-xs">
-              Crafting elegant, performant web applications with modern
-              technologies and a passion for clean architecture.
+            <p className="text-xs sm:text-sm text-[#64748B] dark:text-[#94A3B8] leading-relaxed max-w-xs">
+              Crafting responsive, performant web applications with modern
+              technologies, clean code, and zero-database architectures.
             </p>
             {info.email && (
               <a
                 href={`mailto:${info.email}`}
-                className="inline-flex items-center gap-2 text-sm text-[#9180D8] hover:text-[#7b6bc4] transition-colors font-medium"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm text-[#9180D8] dark:text-[#C4B5FD] hover:underline font-semibold"
               >
                 <Mail className="w-4 h-4" />
                 {info.email}
@@ -55,24 +55,23 @@ export default function Footer({ personal = {} }) {
 
           {/* Architecture Badge */}
           <div className="flex items-start sm:justify-center">
-            <div className="p-5 bg-[#FCFBFF] rounded-2xl border border-[#EDE7FF]/60 max-w-xs">
+            <div className="p-5 bg-[#FAF9F6] dark:bg-slate-900 rounded-2xl border border-[#EDE7FF] dark:border-slate-800 max-w-xs shadow-xs">
               <div className="flex items-center gap-2.5 mb-3">
-                <div className="w-9 h-9 rounded-xl bg-[#E8F8F0] flex items-center justify-center">
-                  <ShieldCheck className="w-4.5 h-4.5 text-emerald-500" />
+                <div className="w-9 h-9 rounded-xl bg-[#E8F8F0] dark:bg-emerald-950/60 flex items-center justify-center">
+                  <ShieldCheck className="w-4.5 h-4.5 text-emerald-600 dark:text-emerald-400" />
                 </div>
-                <h4 className="text-sm font-bold text-[#26324A]">
-                  Zero-Database
+                <h4 className="text-xs font-bold text-[#0F172A] dark:text-[#F8FAFC] uppercase tracking-wider">
+                  Zero-Database Engine
                 </h4>
               </div>
-              <p className="text-xs text-[#707789] leading-relaxed">
-                This portfolio runs on a flat-file JSON architecture — no
-                database, no data collection. Fast, private, and fully
-                transparent.
+              <p className="text-xs text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+                Runs on a validated flat-file JSON architecture & Vercel serverless REST API.
+                Fast, private, and resilient against downtime.
               </p>
               <div className="flex items-center gap-1.5 mt-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span className="text-[10px] font-medium text-emerald-600 uppercase tracking-wider">
-                  Privacy by Design
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">
+                  Production Online
                 </span>
               </div>
             </div>
@@ -80,10 +79,9 @@ export default function Footer({ personal = {} }) {
 
           {/* Social Links + Back to Top */}
           <div className="flex flex-col items-start lg:items-end gap-5">
-            {/* Social Links */}
             <div className="space-y-3">
-              <p className="text-xs font-semibold text-[#26324A] uppercase tracking-wider">
-                Connect
+              <p className="text-xs font-bold text-[#0F172A] dark:text-[#F8FAFC] uppercase tracking-wider">
+                Connect & Follow
               </p>
               <div className="flex items-center gap-3">
                 {info.github && (
@@ -92,9 +90,9 @@ export default function Footer({ personal = {} }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub profile"
-                    className="w-10 h-10 rounded-xl border border-[#EDE7FF]/60 flex items-center justify-center text-[#707789] hover:text-[#9180D8] hover:border-[#9180D8]/40 hover:shadow-sm transition-all duration-300"
+                    className="w-10 h-10 rounded-xl border border-[#EDE7FF] dark:border-slate-800 bg-white dark:bg-slate-800/80 flex items-center justify-center text-[#64748B] dark:text-[#94A3B8] hover:text-[#9180D8] dark:hover:text-[#C4B5FD] hover:shadow-xs transition-all"
                   >
-                    <GithubIcon className="w-5 h-5" />
+                    <GithubIcon className="w-4.5 h-4.5" />
                   </a>
                 )}
                 {info.linkedin && (
@@ -103,27 +101,17 @@ export default function Footer({ personal = {} }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn profile"
-                    className="w-10 h-10 rounded-xl border border-[#EDE7FF]/60 flex items-center justify-center text-[#707789] hover:text-[#9180D8] hover:border-[#9180D8]/40 hover:shadow-sm transition-all duration-300"
+                    className="w-10 h-10 rounded-xl border border-[#EDE7FF] dark:border-slate-800 bg-white dark:bg-slate-800/80 flex items-center justify-center text-[#64748B] dark:text-[#94A3B8] hover:text-[#0284C7] dark:hover:text-[#38BDF8] hover:shadow-xs transition-all"
                   >
-                    <LinkedinIcon className="w-5 h-5" />
-                  </a>
-                )}
-                {info.email && (
-                  <a
-                    href={`mailto:${info.email}`}
-                    aria-label="Send email"
-                    className="w-10 h-10 rounded-xl border border-[#EDE7FF]/60 flex items-center justify-center text-[#707789] hover:text-[#9180D8] hover:border-[#9180D8]/40 hover:shadow-sm transition-all duration-300"
-                  >
-                    <Mail className="w-5 h-5" />
+                    <LinkedinIcon className="w-4.5 h-4.5" />
                   </a>
                 )}
               </div>
             </div>
 
-            {/* Back to Top */}
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#9180D8] text-white text-sm font-medium hover:bg-[#7b6bc4] transition-colors shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#9180D8] to-[#5B8DEF] text-white text-xs font-bold shadow-sm hover:brightness-105 transition-all cursor-pointer"
               aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4" />
@@ -133,14 +121,13 @@ export default function Footer({ personal = {} }) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-5 border-t border-[#EDE7FF]/40 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-[#707789]">
+        <div className="py-6 border-t border-[#EDE7FF]/60 dark:border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-[#64748B] dark:text-[#94A3B8]">
             © {CURRENT_YEAR} VARIKUNTLA NAGAMOUNIKA. All rights reserved.
           </p>
-          <p className="flex items-center gap-1.5 text-xs text-[#707789]">
-            Designed with
-            <Heart className="w-3 h-3 text-pink-400 fill-pink-400" />
-            soft pastel aesthetics & Framer Motion
+          <p className="flex items-center gap-1.5 text-xs text-[#64748B] dark:text-[#94A3B8]">
+            Built with React.js, Tailwind CSS, Vite & Framer Motion
+            <Heart className="w-3.5 h-3.5 text-pink-500 fill-pink-500" />
           </p>
         </div>
       </div>

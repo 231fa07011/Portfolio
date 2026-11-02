@@ -23,8 +23,8 @@ const skillGroups = [
     category: 'web',
     title: 'Web Development',
     icon: Layout,
-    iconColor: 'text-[#9180D8]',
-    bgLight: 'bg-[#EDE7FF]/40',
+    iconColor: 'text-[#9180D8] dark:text-[#C4B5FD]',
+    bgLight: 'bg-[#EDE7FF]/50 dark:bg-purple-950/50',
     skills: [
       { name: 'React.js', level: 'Advanced', tag: 'Frontend Library' },
       { name: 'JavaScript (ES6+)', level: 'Advanced', tag: 'Core Language' },
@@ -39,8 +39,8 @@ const skillGroups = [
     category: 'languages',
     title: 'Languages & Databases',
     icon: Database,
-    iconColor: 'text-[#0284C7]',
-    bgLight: 'bg-[#E5F2FF]/40',
+    iconColor: 'text-[#0284C7] dark:text-[#38BDF8]',
+    bgLight: 'bg-[#E5F2FF]/50 dark:bg-sky-950/50',
     skills: [
       { name: 'Python', level: 'Intermediate', tag: 'Programming' },
       { name: 'Java (Basic)', level: 'Basic', tag: 'OOP Core' },
@@ -52,8 +52,8 @@ const skillGroups = [
     category: 'tools',
     title: 'Developer Tools & Workflow',
     icon: Terminal,
-    iconColor: 'text-[#0D9488]',
-    bgLight: 'bg-[#E0F2F1]/40',
+    iconColor: 'text-[#0D9488] dark:text-[#2DD4BF]',
+    bgLight: 'bg-[#E0F2F1]/50 dark:bg-teal-950/50',
     skills: [
       { name: 'Git', level: 'Advanced', tag: 'Version Control' },
       { name: 'GitHub', level: 'Advanced', tag: 'Collaboration' },
@@ -66,8 +66,8 @@ const skillGroups = [
     category: 'core',
     title: 'Core Computer Science Concepts',
     icon: Cpu,
-    iconColor: 'text-[#D97706]',
-    bgLight: 'bg-[#FEF3C7]/40',
+    iconColor: 'text-[#D97706] dark:text-[#FBBF24]',
+    bgLight: 'bg-[#FEF3C7]/50 dark:bg-amber-950/50',
     skills: [
       { name: 'Object-Oriented Programming (OOP)', level: 'Strong', tag: 'Design Principles' },
       { name: 'Database Management Systems (DBMS)', level: 'Strong', tag: 'Schema & Queries' },
@@ -87,7 +87,7 @@ export default function Skills() {
       : skillGroups.filter((g) => g.category === activeTab);
 
   return (
-    <section id="skills" className="py-20 md:py-28 bg-white relative">
+    <section id="skills" className="py-20 md:py-28 bg-white dark:bg-[#0E1524] relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -97,16 +97,16 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FCFBFF] border border-[#EDE7FF] shadow-xs mb-3">
-            <Code2 className="w-4 h-4 text-[#9180D8]" />
-            <span className="text-xs font-semibold tracking-wider uppercase text-[#9180D8]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FCFBFF] dark:bg-slate-900 border border-[#EDE7FF] dark:border-slate-800 shadow-xs mb-3">
+            <Code2 className="w-4 h-4 text-[#9180D8] dark:text-[#C4B5FD]" />
+            <span className="text-xs font-semibold tracking-wider uppercase text-[#9180D8] dark:text-[#C4B5FD]">
               Technical Proficiencies
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] dark:text-[#F8FAFC] tracking-tight mb-4">
             Technical Skills
           </h2>
-          <p className="text-base sm:text-lg text-[#64748B] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-[#64748B] dark:text-[#94A3B8] max-w-2xl mx-auto leading-relaxed">
             Verified software engineering capabilities, development tools, and foundational concepts.
           </p>
         </motion.div>
@@ -122,11 +122,11 @@ export default function Skills() {
                 onClick={() => setActiveTab(cat.key)}
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-[#0F172A] text-white shadow-md'
-                    : 'bg-[#FAF9F6] text-[#64748B] border border-[#EDE7FF] hover:bg-[#EDE7FF]/30 hover:text-[#0F172A]'
+                    ? 'bg-[#0F172A] dark:bg-white text-white dark:text-[#0F172A] shadow-md'
+                    : 'bg-[#FAF9F6] dark:bg-slate-900 text-[#64748B] dark:text-[#94A3B8] border border-[#EDE7FF] dark:border-slate-800 hover:bg-[#EDE7FF]/30 dark:hover:bg-slate-800 hover:text-[#0F172A] dark:hover:text-white'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-[#9180D8]'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white dark:text-[#0F172A]' : 'text-[#9180D8] dark:text-[#C4B5FD]'}`} />
                 {cat.label}
               </button>
             );
@@ -146,14 +146,14 @@ export default function Skills() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.3 }}
-                  className="p-6 sm:p-8 rounded-3xl bg-[#FAF9F6] border border-[#EDE7FF] shadow-xs flex flex-col justify-between"
+                  className="p-6 sm:p-8 rounded-3xl bg-[#FAF9F6] dark:bg-slate-900/80 border border-[#EDE7FF] dark:border-slate-800 shadow-xs flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center gap-3 mb-6">
                       <div className={`w-10 h-10 rounded-xl ${group.bgLight} flex items-center justify-center`}>
                         <Icon className={`w-5 h-5 ${group.iconColor}`} />
                       </div>
-                      <h3 className="text-lg font-bold text-[#0F172A]">
+                      <h3 className="text-lg font-bold text-[#0F172A] dark:text-[#F8FAFC]">
                         {group.title}
                       </h3>
                     </div>
@@ -162,17 +162,17 @@ export default function Skills() {
                       {group.skills.map((s, idx) => (
                         <div
                           key={idx}
-                          className="p-3 rounded-2xl bg-white border border-[#EDE7FF]/80 flex items-center justify-between shadow-xs hover:border-[#9180D8]/40 transition-colors"
+                          className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-[#EDE7FF]/80 dark:border-slate-700/80 flex items-center justify-between shadow-xs hover:border-[#9180D8]/40 dark:hover:border-[#9180D8]/60 transition-colors"
                         >
                           <div className="min-w-0 pr-2">
-                            <p className="text-xs sm:text-sm font-bold text-[#0F172A] truncate">
+                            <p className="text-xs sm:text-sm font-bold text-[#0F172A] dark:text-[#F8FAFC] truncate">
                               {s.name}
                             </p>
-                            <p className="text-[10px] text-[#64748B] font-medium">
+                            <p className="text-[10px] text-[#64748B] dark:text-[#94A3B8] font-medium">
                               {s.tag}
                             </p>
                           </div>
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#EDE7FF]/40 text-[#9180D8] shrink-0">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#EDE7FF]/50 dark:bg-purple-950/60 text-[#9180D8] dark:text-[#C4B5FD] shrink-0">
                             {s.level}
                           </span>
                         </div>

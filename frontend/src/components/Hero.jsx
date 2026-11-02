@@ -32,13 +32,13 @@ export default function Hero({ personal = {} }) {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex items-center overflow-hidden bg-[#FAF9F6] pt-24 pb-16 lg:py-28"
+      className="relative min-h-[92vh] flex items-center overflow-hidden bg-[#FAF9F6] dark:bg-[#0B0F19] pt-24 pb-16 lg:py-28 transition-colors duration-300"
     >
-      {/* ── Background Accent Blobs (Warm Ivory & Soft Pastels) ── */}
+      {/* ── Background Accent Blobs (Warm Pastels in Light / Glowing Auroras in Dark) ── */}
       <div className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
-        <div className="absolute -top-24 -left-24 h-[500px] w-[500px] rounded-full bg-[#EDE7FF]/50 blur-[110px]" />
-        <div className="absolute top-1/4 right-0 h-[450px] w-[450px] rounded-full bg-[#E5F2FF]/60 blur-[120px]" />
-        <div className="absolute -bottom-20 left-1/3 h-[380px] w-[380px] rounded-full bg-[#E0F2F1]/50 blur-[100px]" />
+        <div className="absolute -top-24 -left-24 h-[500px] w-[500px] rounded-full bg-[#EDE7FF]/50 dark:bg-[#9180D8]/15 blur-[120px]" />
+        <div className="absolute top-1/4 right-0 h-[450px] w-[450px] rounded-full bg-[#E5F2FF]/60 dark:bg-[#38BDF8]/15 blur-[120px]" />
+        <div className="absolute -bottom-20 left-1/3 h-[380px] w-[380px] rounded-full bg-[#E0F2F1]/50 dark:bg-[#0D9488]/15 blur-[110px]" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -52,7 +52,7 @@ export default function Hero({ personal = {} }) {
           >
             {/* Status pill */}
             <motion.div variants={slideIn} className="mb-5">
-              <span className="inline-flex items-center gap-2.5 rounded-full border border-[#EDE7FF] bg-white/95 px-4 py-1.5 text-xs font-semibold tracking-wide text-[#334155] shadow-sm backdrop-blur">
+              <span className="inline-flex items-center gap-2.5 rounded-full border border-[#EDE7FF] dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 px-4 py-1.5 text-xs font-semibold tracking-wide text-[#334155] dark:text-[#E2E8F0] shadow-xs backdrop-blur">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
@@ -64,7 +64,7 @@ export default function Hero({ personal = {} }) {
             {/* Subtitle / Role Tag */}
             <motion.p
               variants={slideIn}
-              className="mb-2 text-xs font-bold uppercase tracking-[0.25em] text-[#9180D8]"
+              className="mb-2 text-xs font-bold uppercase tracking-[0.25em] text-[#9180D8] dark:text-[#C4B5FD]"
             >
               Software Engineering • Web Development Portfolio
             </motion.p>
@@ -72,7 +72,7 @@ export default function Hero({ personal = {} }) {
             {/* Name */}
             <motion.h1
               variants={slideIn}
-              className="mb-4 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#0F172A]"
+              className="mb-4 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#0F172A] dark:text-[#F8FAFC]"
             >
               VARIKUNTLA NAGAMOUNIKA
             </motion.h1>
@@ -80,7 +80,7 @@ export default function Hero({ personal = {} }) {
             {/* Headline */}
             <motion.p
               variants={slideIn}
-              className="mb-5 text-lg sm:text-xl font-semibold text-[#334155]"
+              className="mb-5 text-lg sm:text-xl font-semibold text-[#334155] dark:text-[#CBD5E1]"
             >
               B.Tech Information Technology Student & Aspiring Full-Stack Developer
             </motion.p>
@@ -88,7 +88,7 @@ export default function Hero({ personal = {} }) {
             {/* Concise Professional Bio */}
             <motion.p
               variants={slideIn}
-              className="mb-8 max-w-2xl text-sm sm:text-base leading-relaxed text-[#475569]"
+              className="mb-8 max-w-2xl text-sm sm:text-base leading-relaxed text-[#475569] dark:text-[#94A3B8]"
             >
               Information Technology student at Vignan's Foundation (CGPA 7.92/10,
               graduating in 2027) with hands-on web development experience through an
@@ -103,15 +103,15 @@ export default function Hero({ personal = {} }) {
               variants={slideIn}
               className="mb-8 flex flex-wrap items-center gap-2.5"
             >
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-[#0F172A] border border-[#EDE7FF] shadow-xs">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white dark:bg-slate-800/80 px-3.5 py-1.5 text-xs font-semibold text-[#0F172A] dark:text-[#F1F5F9] border border-[#EDE7FF] dark:border-slate-700 shadow-xs">
                 <MapPin className="h-3.5 w-3.5 text-[#9180D8]" />
                 Ongole, Andhra Pradesh
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-[#0F172A] border border-[#E5F2FF] shadow-xs">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white dark:bg-slate-800/80 px-3.5 py-1.5 text-xs font-semibold text-[#0F172A] dark:text-[#F1F5F9] border border-[#E5F2FF] dark:border-slate-700 shadow-xs">
                 <GraduationCap className="h-3.5 w-3.5 text-[#0284C7]" />
                 CGPA 7.92 / 10
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-[#0F172A] border border-[#E0F2F1] shadow-xs">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white dark:bg-slate-800/80 px-3.5 py-1.5 text-xs font-semibold text-[#0F172A] dark:text-[#F1F5F9] border border-[#E0F2F1] dark:border-slate-700 shadow-xs">
                 <Code2 className="h-3.5 w-3.5 text-[#0D9488]" />
                 React.js • Node • MySQL • Python
               </span>
@@ -124,7 +124,7 @@ export default function Hero({ personal = {} }) {
             >
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#9180D8] via-[#7B6BC4] to-[#5B8DEF] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#9180D8]/25 transition-transform hover:scale-[1.03] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#9180D8] via-[#7B6BC4] to-[#5B8DEF] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#9180D8]/25 hover:brightness-105 transition-transform hover:scale-[1.03] active:scale-[0.98]"
               >
                 View Projects
                 <ArrowRight className="h-4 w-4" />
@@ -139,15 +139,15 @@ export default function Hero({ personal = {} }) {
                     event_label: 'Hero Resume Button',
                   })
                 }
-                className="inline-flex items-center gap-2 rounded-xl border border-[#EDE7FF] bg-white px-6 py-3 text-sm font-bold text-[#0F172A] shadow-sm transition-transform hover:bg-[#EDE7FF]/30 hover:scale-[1.03] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 rounded-xl border border-[#EDE7FF] dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-3 text-sm font-bold text-[#0F172A] dark:text-[#F8FAFC] shadow-xs transition-transform hover:bg-[#EDE7FF]/30 dark:hover:bg-slate-700 hover:scale-[1.03] active:scale-[0.98]"
               >
-                <FileDown className="h-4 w-4 text-[#9180D8]" />
+                <FileDown className="h-4 w-4 text-[#9180D8] dark:text-[#C4B5FD]" />
                 Download Resume
               </a>
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-1.5 px-4 py-3 text-sm font-bold text-[#9180D8] hover:text-[#7A6BC4] transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-3 text-sm font-bold text-[#9180D8] dark:text-[#C4B5FD] hover:text-[#7A6BC4] transition-colors"
               >
                 Contact Me
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -164,7 +164,7 @@ export default function Hero({ personal = {} }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub Profile"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#EDE7FF] bg-white text-[#475569] shadow-xs transition-colors hover:bg-[#EDE7FF]/40 hover:text-[#0F172A]"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#EDE7FF] dark:border-slate-800 bg-white dark:bg-slate-800/80 text-[#475569] dark:text-[#94A3B8] shadow-xs transition-colors hover:bg-[#EDE7FF]/40 dark:hover:bg-slate-700 hover:text-[#0F172A] dark:hover:text-white"
               >
                 <GithubIcon className="h-4 w-4" />
               </a>
@@ -173,14 +173,14 @@ export default function Hero({ personal = {} }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#EDE7FF] bg-white text-[#475569] shadow-xs transition-colors hover:bg-[#E5F2FF]/50 hover:text-[#0284C7]"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#EDE7FF] dark:border-slate-800 bg-white dark:bg-slate-800/80 text-[#475569] dark:text-[#94A3B8] shadow-xs transition-colors hover:bg-[#E5F2FF]/50 dark:hover:bg-slate-700 hover:text-[#0284C7] dark:hover:text-cyan-400"
               >
                 <LinkedinIcon className="h-4 w-4" />
               </a>
               <a
                 href={`mailto:${email}`}
                 aria-label="Email"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#EDE7FF] bg-white text-[#475569] shadow-xs transition-colors hover:bg-[#FFF0F4]/60 hover:text-[#E11D48]"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#EDE7FF] dark:border-slate-800 bg-white dark:bg-slate-800/80 text-[#475569] dark:text-[#94A3B8] shadow-xs transition-colors hover:bg-[#FFF0F4]/60 dark:hover:bg-slate-700 hover:text-[#E11D48]"
               >
                 <Mail className="h-4 w-4" />
               </a>
@@ -196,10 +196,10 @@ export default function Hero({ personal = {} }) {
           >
             <div className="relative">
               {/* Soft ambient aura */}
-              <div className="absolute -inset-6 z-0 rounded-[2.5rem] bg-gradient-to-tr from-[#EDE7FF]/80 via-[#E5F2FF]/60 to-[#E0F2F1]/50 blur-2xl" />
+              <div className="absolute -inset-6 z-0 rounded-[2.5rem] bg-gradient-to-tr from-[#EDE7FF]/80 via-[#E5F2FF]/60 to-[#E0F2F1]/50 dark:from-[#9180D8]/20 dark:via-[#38BDF8]/15 dark:to-[#0D9488]/15 blur-2xl" />
 
-              {/* White framed card */}
-              <div className="relative z-10 overflow-hidden rounded-[2rem] border border-[#EDE7FF] bg-white p-3 shadow-xl shadow-[#EDE7FF]/50">
+              {/* Framed card */}
+              <div className="relative z-10 overflow-hidden rounded-[2rem] border border-[#EDE7FF] dark:border-slate-800 bg-white dark:bg-slate-900 p-3 shadow-xl shadow-[#EDE7FF]/50 dark:shadow-black/50">
                 <div className="group relative overflow-hidden rounded-2xl">
                   <img
                     src="/profile.png"
@@ -209,11 +209,11 @@ export default function Hero({ personal = {} }) {
                   />
 
                   {/* Frosted identity banner */}
-                  <div className="absolute inset-x-0 bottom-0 bg-white/85 px-5 py-3.5 backdrop-blur-md border-t border-[#EDE7FF]/60">
-                    <p className="text-sm font-extrabold tracking-wide text-[#0F172A]">
+                  <div className="absolute inset-x-0 bottom-0 bg-white/85 dark:bg-slate-900/90 px-5 py-3.5 backdrop-blur-md border-t border-[#EDE7FF]/60 dark:border-slate-800">
+                    <p className="text-sm font-extrabold tracking-wide text-[#0F172A] dark:text-[#F8FAFC]">
                       VARIKUNTLA NAGAMOUNIKA
                     </p>
-                    <p className="text-xs font-semibold text-[#64748B]">
+                    <p className="text-xs font-semibold text-[#64748B] dark:text-[#94A3B8]">
                       B.Tech in Information Technology (2023–2027)
                     </p>
                   </div>

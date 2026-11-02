@@ -3,12 +3,15 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { initGA } from './utils/analytics'
+import { ThemeProvider } from './context/ThemeContext'
 
 // Initialize Google Analytics 4 (reads VITE_GA_MEASUREMENT_ID)
 initGA()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </StrictMode>,
 )
