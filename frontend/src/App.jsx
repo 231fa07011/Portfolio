@@ -11,7 +11,6 @@ import Certifications from './components/Certifications';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import AudioPlayer from './components/AudioPlayer';
 
 import { checkBackendHealth, fetchPortfolioData } from './services/api';
 import { fallbackPortfolioData } from './data/fallbackPortfolio';
@@ -104,9 +103,6 @@ export default function App() {
 
       {/* Footer */}
       <Footer personal={portfolio.personal} />
-
-      {/* Floating Background Music Player */}
-      <AudioPlayer />
     </div>
   );
 }
